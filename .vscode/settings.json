@@ -1,0 +1,15 @@
+{
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "vector": "cpp",
+        "iostream": "cpp",
+        "ratio": "cpp",
+        "chrono": "cpp",
+        "ostream": "cpp",
+        "string": "cpp",
+        "set": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
+    }
+}
