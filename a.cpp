@@ -17,38 +17,32 @@ using namespace std;
 class Sol {
 private:
     int n;
+
     
  
 public:
 
+    void helper(int x, bool up , int par, string s){
+        if(x == 1){
+            s += par + '0';
+            cout << s << endl;
+            return;
+        } 
+        s += par + '0';
+        int a =  up ? 0 : 1;
+        helper(x - 1, true, a , s);
+        helper(x - 1, false, 1 - a , s);
+    }
 
- 
+
     void solve() {
         cin >> n;
-        vi arr(n);
 
-        for(int &i : arr){
-            cin >> i;
-        }
-
-
-        int cnt = 0, res = INT_MAX;
-        for(int i = 0; i < n; i++){
-            if(arr[i] != arr[0]){
-                res = min(cnt, res);
-                cnt = 0;
-            } else {
-                cnt++;
-            }
-        }
-
-        res = min(res, cnt);
-
-        if(res == n) cout << -1 << endl;
-        else cout << res << endl;
+        string res;
+        helper(n, true, 0, res);
+        helper(n, false, 1, res);
 
 
-        
     }
 };
 
@@ -62,7 +56,7 @@ freopen("output.txt","w",stdout);
     ios::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
         Sol s;
         s.solve();
