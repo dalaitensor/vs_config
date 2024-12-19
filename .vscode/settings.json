@@ -10,6 +10,11 @@
         "string": "cpp",
         "set": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "limits": "cpp",
+        "random": "cpp",
+        "valarray": "cpp",
+        "algorithm": "cpp",
+        "string.h": "c"
     }
 }
