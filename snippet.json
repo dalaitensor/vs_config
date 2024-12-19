@@ -29,7 +29,6 @@
 		  "",
 		  "class Sol {",
 		  "private:",
-		  "    vector<int> arr;",
 		  "    int n;",
 		  "",
 		  "public:",
