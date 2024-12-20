@@ -2,6 +2,8 @@
 
 #define ll              long long
 #define vi              vector<int >
+#define vil             vector<ll >
+#define pb              push_back
 #define pii             pair<int , int >
 #define R(i , n, a) for(int i = n; i >= a; i--)
 #define debug(x) cout << #x << " = " << x << " "
@@ -16,7 +18,16 @@ private:
 
 public:
     void solve() {
-        cin >> n;
+        // cin >> n;
+        printf("%d asdcsa", n);
+        // vi pref(n+1), dp(n + 1);
+
+        // for (int i = 1; i <= n; i++) {
+        //     dp[i] = 1 + pref[i - 1];
+        //     pref[i] = dp[i] + pref[i - 1];
+        // }
+
+        // cout << dp[n];
     }
 };
 
@@ -30,7 +41,7 @@ freopen("output.txt","w",stdout);
     ios::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
         Sol s;
         s.solve();
