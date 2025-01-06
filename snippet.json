@@ -27,16 +27,14 @@
 			"#define debug3(x, y, z) cout << #x << \" = \" << x << \" \" << #y << \" = \" << y << \" \" << #z << \" = \" << z << \" \"",
 			"",
 			"using namespace std;",
-			"",
-			"int n, a, b, m, k;",
+			"const int MOD = 1e9 + 7;",
 			"",
 			"void solve(){",
-			"    cin >> n;",
+			"    ",
 			"}",
 			"",
 			"",
-			"int main() {",
-			"",
+			"signed main() {",
 			"",
 			"    ios::sync_with_stdio(0);",
 			"    cin.tie(0), cout.tie(0);",
@@ -46,10 +44,10 @@
 			"        solve();",
 			"    }",
 			"",
-			"    return 0;",
 			"}"
 		],
 		"description": "Base struct of main function"
+	  }
 	  }
 
 	
