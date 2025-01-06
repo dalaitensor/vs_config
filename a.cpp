@@ -31,8 +31,7 @@ freopen("output.txt","w",stdout);
     int t = 1;
     cin >> t;
     while(t--) {
-        Sol s;
-        s.solve();
+        solve();
     }
 
     return 0;
