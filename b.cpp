@@ -2,50 +2,43 @@
 
 #define ll              long long
 #define vi              vector<int >
-#define vil             vector<ll >
-#define pb              push_back
+#define vll              vector<ll >
+#define vii              vector<vector<int > >
 #define pii             pair<int , int >
 #define R(i , n, a) for(int i = n; i >= a; i--)
 #define debug(x) cout << #x << " = " << x << " "
 #define debug2(x, y) cout << #x << " = " << x << " " << #y << " = " << y << " "
 #define debug3(x, y, z) cout << #x << " = " << x << " " << #y << " = " << y << " " << #z << " = " << z << " "
 
+#define int ll
 using namespace std;
+const int MOD = 1e9 + 7;
 
-class Sol {
-private:
-    int n;
+void solve(){
+    int n; cin >> n;
 
-public:
-    void solve() {
-        // cin >> n;
-        printf("%d asdcsa", n);
-        // vi pref(n+1), dp(n + 1);
+    vi a(n);
+    for(int &i : a) cin >> i;
 
-        // for (int i = 1; i <= n; i++) {
-        //     dp[i] = 1 + pref[i - 1];
-        //     pref[i] = dp[i] + pref[i - 1];
-        // }
+    int jump = a[0] - 1, curr = a[0];
 
-        // cout << dp[n];
+    for(int i = 1; i < n; i++){
+        if(a[i] > a[i - 1]) jump += a[i] - a[i - 1];
     }
-};
 
-int main() {
+    cout << jump << endl;
+    
+}
 
-#ifndef ONLINE_JUDGE
-freopen("input.txt","r",stdin);
-freopen("output.txt","w",stdout);
-#endif
+
+signed main() {
 
     ios::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while(t--) {
-        Sol s;
-        s.solve();
+        solve();
     }
 
-    return 0;
 }
