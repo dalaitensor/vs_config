@@ -16,38 +16,35 @@ using namespace std;
 const int MOD = 1e9 + 7;
 
 typedef struct {
-    int val, count;
+    int seg, pref, suf, sum;
 } node;
+
 
 class St{
 private:
-    vector<node> st;
+    vector<int> st;
 
-public: 
+public:
     St(int n){
-        st.resize(4 * n, {INT64_MAX, 1});
+        st.resize(4 * n, 0);
     }
 
     void print() {
-        for (auto val : st) {
-            cout << val.val << " ";
+        for (int val : st) {
+            cout << val << " ";
         }
         cout << endl;
     }
 
     void merge(int pos, int val){
-        st[pos] = {val, 1};
+        st[pos] = val;
     }
 
-    node op(node a, node b){
-        if(a.val == b.val) return {a.val, a.count + b.count};
-        else {
-            if(a.val < b.val) return a;
-            else return b;
-        }
+    int op(int a, int b){
+        return a + b;
     }
 
-    void build(vi& arr, int lx, int rx, int pos){
+    void build(vector<int> &arr, int lx, int rx, int pos){
         if(lx == rx){
             merge(pos, arr[lx]);
             return;
@@ -61,32 +58,33 @@ public:
         st[pos] = op(st[2 * pos + 1], st[2 * pos + 2]);
     }
 
-    void update(int val, int index, int lx, int rx, int pos){
+    void update(int index, int val,  int lx, int rx, int pos){
         if(lx == rx){
-            merge(pos, val);
+            merge(pos, 1 - st[pos]);
             return;
         }
 
         int mid = lx + (rx - lx) / 2;
 
-        if(mid >= index) update(val, index, lx ,mid, 2 * pos + 1);
-        else update(val, index, mid + 1, rx, 2 * pos + 2);
+        if(mid >= index) update(index, val, lx, mid, 2 * pos + 1);
+        else update(index, val, mid + 1, rx, 2 * pos + 2);
 
         st[pos] = op(st[2 * pos + 1], st[2 * pos + 2]);
     }
 
-    node query(int l, int r, int lx, int rx, int pos){
-        if(l <= lx && rx <= r){
-            return st[pos];
+    int query(int k, int lx, int rx, int pos){
+        if(lx == rx){
+            return lx;
         }
-        if(rx < l || r < lx) return {INT64_MAX, 1};
 
         int mid = lx + (rx - lx) / 2;
 
-        node left = query(l, r, lx, mid, 2 * pos + 1);
-        node right = query(l, r, mid + 1, rx, 2 * pos + 2);
+        int s = st[2 * pos + 1];
 
-        return op(left, right);
+        if(k < s)
+            return query(k, lx, mid, 2 * pos + 1);
+        else
+            return query(k - s, mid + 1, rx, 2 * pos + 2);
     }
 
 };
@@ -104,12 +102,13 @@ void solve(){
     // tree.print();
 
     while(m--){
-        int dir, x, y; cin >> dir >> x >> y;
+        int dir, x; cin >>dir >> x;
+
         if(dir == 1){
-            tree.update(y, x, 0, n - 1, 0);
+            tree.update(x, 0, 0, n - 1, 0);
+            // tree.print();
         } else {
-            node res =  tree.query(x, y - 1, 0, n - 1, 0);
-            cout << res.val << " " << res.count << endl;
+            cout << tree.query(x, 0, n - 1, 0) << endl;
         }
     }
     
