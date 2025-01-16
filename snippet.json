@@ -1,7 +1,7 @@
 {
 
 	"for loop": {
-		"prefix": "f",
+		"prefix": "forloop",
 		"body": [
 			"for (int i = 0; i < n; i++) {",
      	 	"    ",
