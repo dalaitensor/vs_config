@@ -15,6 +15,7 @@
         "random": "cpp",
         "valarray": "cpp",
         "algorithm": "cpp",
-        "string.h": "c"
+        "string.h": "c",
+        "regex": "cpp"
     }
 }
