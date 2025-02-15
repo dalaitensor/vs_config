@@ -16,6 +16,11 @@
         "valarray": "cpp",
         "algorithm": "cpp",
         "string.h": "c",
-        "regex": "cpp"
-    }
+        "regex": "cpp",
+        "__node_handle": "cpp",
+        "__tree": "cpp",
+        "map": "cpp",
+        "stdexcept": "cpp"
+    },
+    "editor.fontSize": 13.5
 }
