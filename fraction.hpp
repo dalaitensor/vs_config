@@ -27,6 +27,14 @@ public:
         simplify();
     }
 
+    bool operator==(const flo &other) const {
+        return numerator == other.numerator && denominator == other.denominator;
+    }
+
+    bool operator!=(const flo &other) const {
+        return !(*this == other);
+    }
+
     flo operator+(const flo &other) const {
         return flo(numerator * other.denominator + other.numerator * denominator, denominator * other.denominator);
     }
@@ -56,7 +64,8 @@ public:
         return os;
     }
     void print() const {
-        cout << numerator << "/" << denominator << endl;
+        cout<< " " << numerator;
+        if(denominator != 1) cout << "/" << denominator;
     }
 };
 
