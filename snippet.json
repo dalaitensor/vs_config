@@ -3,7 +3,7 @@
 	"for loop": {
 		"prefix": "forloop",
 		"body": [
-			"for (int ${i} = 0; ${i} < n; ${i}++) {",
+			"for (int i = 0; i < n; i++) {",
      	 	"    ",
       		"}"
 		],
@@ -121,8 +121,148 @@
 			"",
 			"}"
 		],
-		"description": "Base struct of main function"
-	  }
+		"description": "Base struct of main function",
+
+	},
+
+	"fibonacci": {
+		"prefix": "fibonnaci",
+		"body": [
+			"struct matrix {",
+			"    long long mat[2][2];",
+			"    matrix friend operator *(const matrix &a, const matrix &b){",
+			"        matrix c;",
+			"        for (int i = 0; i < 2; i++) {",
+			"          for (int j = 0; j < 2; j++) {",
+			"              c.mat[i][j] = 0;",
+			"              for (int k = 0; k < 2; k++) {",
+			"                  c.mat[i][j] += a.mat[i][k] * b.mat[k][j];",
+			"              }",
+			"          }",
+			"        }",
+			"        return c;",
+			"    }",
+			"};",
+			"",
+			"matrix matpow(matrix base, long long n) {",
+			"    matrix ans{ {",
+			"      {1, 0},",
+			"      {0, 1}",
+			"    } };",
+			"    while (n) {",
+			"        if(n&1)",
+			"            ans = ans*base;",
+			"        base = base*base;",
+			"        n >>= 1;",
+			"    }",
+			"    return ans;",
+			"}",
+			"",
+			"long long fib(int n) {",
+			"    matrix base{ {",
+			"      {1, 1},",
+			"      {1, 0}",
+			"    } };",
+			"    return matpow(base, n).mat[0][1];",
+			"}"
+		]
+	},
+
+
+
+
+	"prime": {
+		"prefix": "prime",
+		"body": [
+			"int n;",
+			"vector<bool> is_prime(n+1, true);",
+			"is_prime[0] = is_prime[1] = false;",
+			"for (int i = 2; i <= n; i++) {",
+			"    if (is_prime[i] && (long long)i * i <= n) {",
+			"        for (int j = i * i; j <= n; j += i)",
+			"            is_prime[j] = false;",
+			"    }",
+			"}"
+
+		]
+	},
+
+
+	"euler": {
+		"prefix": "euler",
+		"body": [
+			"int phi(int n) {",
+			"    int result = n;", 
+			"    for (int i = 2; i * i <= n; i++) {", 
+			"        if (n % i == 0) {", 
+			"            while (n % i == 0)", 
+			"                n /= i;", 
+			"            result -= result / i;", 
+			"        }", 
+			"    }", 
+			"    if (n > 1)", 
+			"        result -= result / n;", 
+			"    return result;", 
+			"}",
+		],
+	},
+
+
+
+	"binexp": {
+		"prefix": "binexp",
+		"body": [
+			"long long binpow(long long a, long long b, long long m) {",  
+			"a %= m;",  
+			"long long res = 1;",  
+			"while (b > 0) {",  
+			"    if (b & 1)",  
+			"        res = res * a % m;",  
+			"    a = a * a % m;",  
+			"    b >>= 1;",  
+			"}",  
+			"return res;",  
+			"}"
+
+		]
+	},
+
+	"gcd": {
+		"prefix": "gcd",
+		"body": [
+			"int gcd (int a, int b) {",  
+			"    return b ? gcd (b, a % b) : a;",  
+			"}"
+		]
+	},
+	
+
+	"chinese": {
+		"prefix": "chinese",
+		"body": [
+			"struct Congruence {",  
+			"    long long a, m;",  
+			"};",  
+
+			"long long chinese_remainder_theorem(vector<Congruence> const& congruences) {",  
+			"    long long M = 1;",  
+			"    for (auto const& congruence : congruences) {",  
+			"        M *= congruence.m;",  
+			"    }",  
+
+			"    long long solution = 0;",  
+			"    for (auto const& congruence : congruences) {",  
+			"        long long a_i = congruence.a;",  
+			"        long long M_i = M / congruence.m;",  
+			"        long long N_i = mod_inv(M_i, congruence.m);",  
+			"        solution = (solution + a_i * M_i % M * N_i) % M;",  
+			"    }",  
+			"    return solution;",  
+			"}"
+
+		]
+	}
+
 
 	
 }
