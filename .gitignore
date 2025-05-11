@@ -1,3 +1,5 @@
 .venv/
 testcase/
 __pycache__/
+*.exe
+*.o

@@ -20,7 +20,8 @@
         "__node_handle": "cpp",
         "__tree": "cpp",
         "map": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "iosfwd": "cpp"
     },
     "editor.fontSize": 13.5
 }

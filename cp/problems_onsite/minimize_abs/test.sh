@@ -1,0 +1,1 @@
+g++ -std=c++17 test_maker.cpp -o test_maker && ./test_maker
