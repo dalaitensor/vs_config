@@ -1,1 +1,0 @@
-gcc solD.c -o solD

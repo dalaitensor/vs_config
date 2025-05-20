@@ -1,1 +1,0 @@
-gcc -o solA solA.c && ./solA
