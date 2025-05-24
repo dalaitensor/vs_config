@@ -126,7 +126,7 @@
 			"}"
 		],
 		"description": "Base struct of main function"
-	}
+	},
 
 	"fibonacci": {
 		"prefix": "fibonnaci",
@@ -264,7 +264,7 @@
 			"}"
 
 		]
-	}
+	},
 
 	"bfs": {
 		"prefix": "bfs",
