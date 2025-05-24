@@ -91,7 +91,7 @@
 		"body": [
 			"#include <bits/stdc++.h>",
 			"",
-			"//#define int              long long",
+			"#define int              long long",
 			"#define vi              vector<int >",
 			"#define vii              vector<vector<int > >",
 			"#define pii             pair<int , int >",
@@ -103,6 +103,10 @@
 			"",
 			"using namespace std;",
 			"const int MOD = 1e9 + 7;",
+			"void print(vector<int> arr){",
+			"   for(int i : arr) cout << i << \" \";",
+			"   cout << endl;",
+			"}",
 			"",
 			"void solve(){",
 			"    ",
@@ -121,9 +125,8 @@
 			"",
 			"}"
 		],
-		"description": "Base struct of main function",
-
-	},
+		"description": "Base struct of main function"
+	}
 
 	"fibonacci": {
 		"prefix": "fibonnaci",
@@ -262,6 +265,44 @@
 
 		]
 	}
+
+	"bfs": {
+		"prefix": "bfs",
+		"body": [
+			"vector<int> vis(n);",
+			"queue<int> q;",
+			"q.push(0);",
+			"while(!q.empty()){",
+			"   int u = q.front(); q.pop();",
+			"   vis[u] = true;",
+			"   for(int v : adj[u]){",
+			"      if(!vis[v])",
+			"      q.push(v);",
+			"   }",
+			"}",
+		]
+	},
+
+	"djikstra": {
+		"prefix": "djikstra",
+		"body": [
+			"vector<int> dis(n, INT_MAX);",
+			"priority_queue<pii, vector<pii>, greater<pii>> pq;",
+			"",
+			"pq.push({0, 0});",
+			"dis[0] = 0;",
+			"",
+			"while(!pq.empty()){",
+			"   auto [d, u] = pq.top(); pq.pop();",
+			"   for(auto [v, w] : adj[u]){",
+			"       if(dis[u] + w < dis[v]){",
+			"           dis[v] = dis[u] + w;",
+			"           pq.push({dis[v], v});",
+			"       }",
+			"   }",
+			"}"
+		]
+	},
 
 
 	
