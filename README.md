@@ -1,4 +1,7 @@
 path to bits/stdc++.h: 
 
-`mkdir -p /usr/local/include/bits/stdc++.h`
+`sudo mkdir -p /usr/local/include/bits`
 
+`sudo nano stdc++.h`
+
+`Copy paste stdc++.h file`
