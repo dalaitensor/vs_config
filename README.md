@@ -4,4 +4,4 @@ path to bits/stdc++.h:
 
 `sudo nano stdc++.h`
 
-`Copy paste stdc++.h file`
+Copy paste stdc++.h file
